@@ -1,26 +1,24 @@
 import { StyleSheet } from 'react-native';
-
-const whiteColor = "#ffffff"
-const blackColor = "#000000"
+import ColorConstants from '../constants/ColorConstants'
 
 // Create styles to be used in component
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: whiteColor
+        backgroundColor: ColorConstants.whiteColor
     },
     searchBox: {
         flex: 1,
         paddingHorizontal: 15,
-        backgroundColor: whiteColor,
+        backgroundColor: ColorConstants.whiteColor,
         borderWidth: 0.75,
-        borderColor: blackColor,
+        borderColor: ColorConstants.blackColor,
         borderRadius: 2,
         height: 45,
         fontSize: 14,
         marginHorizontal: 10,
         marginVertical: 7,
-        color: blackColor
+        color: ColorConstants.blackColor
     },
     searchContainer: {
         marginTop: 5,
@@ -34,59 +32,28 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 2,
-        marginTop:7,
+        marginTop: 7,
         fontSize: 18,
         fontWeight: 'bold',
-        color: '#005077',
-        backgroundColor: 'white',
+        color: ColorConstants.headerBckg,
+        backgroundColor: ColorConstants.whiteColor,
     },
     titleBar: {
-        backgroundColor: '#f1f1f1',
+        backgroundColor: ColorConstants.titleBckgColor,
         elevation: 5,
         height: 50,
         paddingHorizontal: 10,
         paddingVertical: 7,
-        color: blackColor,
+        color: ColorConstants.blackColor,
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center'
     },
     errorLabel: {
         fontSize: 16,
-        color: blackColor,
+        color: ColorConstants.blackColor,
         marginTop: 30,
         textAlign: 'center'
-    },
-    card: {
-        shadowColor: 'black',
-        shadowOpacity: 0.26,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 8,
-        elevation: 5,
-        borderRadius: 7,
-        backgroundColor: 'white',
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        marginHorizontal: 10,
-        marginTop: 7
-    },
-    tempTitle: {
-        fontSize: 16,
-        marginVertical: 5
-    },
-    otherText: {
-        fontSize: 14
-    },
-    highlightedText: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color:'#005077'
-    },
-    conditionTextColor:{
-        color:'#cc6721',
-        fontSize: 14,
-        marginVertical:5,
-        fontWeight: 'bold',
     }
 });
 

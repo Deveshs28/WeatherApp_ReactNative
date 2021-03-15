@@ -8,8 +8,10 @@ import { Keyboard } from 'react-native'
 const axios = require('axios');
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import styles from '../styles'
+import styles from '../styles/styles'
 import moment from 'moment';
+import WeatherItem from '../component/WeatherItem'
+import AppConstant from '../constants/AppConstant'
 
 class HomeScreen extends React.Component {
   constructor() {
@@ -20,17 +22,6 @@ class HomeScreen extends React.Component {
       error: null,
       query: ''
     }
-  }
-
-  // Function to return each section row item
-  renderRow = ({ item }) => {
-    return (
-      <View style={styles.card}>
-        <Text style={styles.tempTitle}>Temperature is <Text style={styles.highlightedText}>{`${item.main.temp}${'\u00b0'}c`}</Text></Text>
-        <Text style={styles.otherText}>Min. temp <Text style={styles.highlightedText}>{`${item.main.temp_min}${'\u00b0'}c `}</Text>and Max. temp <Text style={styles.highlightedText}>{`${item.main.temp_max}${'\u00b0'}c`}</Text></Text>
-        <Text style={styles.conditionTextColor}>{`Weather condition is ${item.weather[0].main}`}</Text>
-      </View>
-    )
   }
 
   // This function will return component UI 
@@ -56,7 +47,7 @@ class HomeScreen extends React.Component {
           <TouchableOpacity data-test="search-button-touch" style={{ width: 20 }} onPress={() => {
             this.handleSearchClick()
           }}>
-            <Image data-test="search-button" source={require('../assets/search_icon.png')} />
+            <Image data-test="search-button" source={require('../../assets/search_icon.png')} />
           </TouchableOpacity>
         </View>
         {/* This view will display activity indicator incase data is loading otherwise will display data in section list */}
@@ -65,7 +56,12 @@ class HomeScreen extends React.Component {
             <SectionList
               sections={this.state.weatherData}
               renderSectionHeader={({ section }) => <Text style={styles.sectionHeader}>{moment(section.title).format('MMM Do YYYY, hh:mm a')}</Text>}
-              renderItem={this.renderRow}
+              renderItem={itemData => <WeatherItem
+                temp={itemData.item.main.temp}
+                tempMin={itemData.item.main.temp_min}
+                tempMax={itemData.item.main.temp_max}
+                weatherCondition={itemData.item.weather[0].main}
+              />}
               keyExtractor={(item, index) => index.toString()}
             /> : <Text style={styles.errorLabel}>{this.state.error}</Text>}
       </View>
@@ -106,13 +102,11 @@ class HomeScreen extends React.Component {
       loading: true
     })
     try {
-      const api = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},in&appid=a7248d18fe5c3e3fc2ada80ee0e9060f&units=metric`
-      console.log(api)
+      const api = `${AppConstant.baseUrl}${AppConstant.zipCodeKey}${zipCode},${AppConstant.countryIdentifier}&${AppConstant.appId}&${AppConstant.units}`
       const response = await axios.get(api)
       this.parseResponseData(response.data.list)
       this.cacheData(zipCode, response.data.list)
     } catch (error) {
-      console.log(error)
       this.setState({
         loading: false,
         error: error.message

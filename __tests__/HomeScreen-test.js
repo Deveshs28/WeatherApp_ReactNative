@@ -2,9 +2,9 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../src/screens/HomeScreen';
 import NetInfo from "@react-native-community/netinfo";
-import {sampleResponse, parsedSuccessResponse} from '../data/DummyData'
+import { sampleResponse, parsedSuccessResponse } from '../data/DummyData'
 
 // setup enzyme's react adapter
 Enzyme.configure({ adapter: new Adapter() });
@@ -52,20 +52,6 @@ test('search button click', () => {
   searchTextInput.simulate('press')
   expect(instance.handleSearchClick).toHaveBeenCalled()
 })
-
-// test('handle search click with no internet', ()=>{
-//   const wrapper = setup()
-//   // NetInfo.isConnected.fetch().mockResolvedValueOnce(false)
-//   const instance = wrapper.instance()
-//   const searchTextInput = findByTestAttr(wrapper, "search-button-touch")
-//   jest.spyOn(instance, 'handleSearchClick')
-//   jest.spyOn(instance, 'fetchCacheData')
-//   jest.mock('@react-native-community/netinfo', () => ({
-//     fetch: () => Promise.resolve({isConnected: false})
-//   }))
-//   searchTextInput.simulate('press')
-//   expect(NetInfo.fetch().isConnected).toBe(false)
-// })
 
 test('fetch data from server called', async () => {
   const wrapper = setup()
@@ -123,7 +109,7 @@ test('check fetchCacheData function with no data available', async () => {
 test('check put data in cache and fetch data success', async () => {
   const wrapper = setup()
   const instance = wrapper.instance()
-  
+
   jest.spyOn(instance, 'cacheData')
   await instance.cacheData('122001', sampleResponse)
   jest.spyOn(instance, 'fetchCacheData')

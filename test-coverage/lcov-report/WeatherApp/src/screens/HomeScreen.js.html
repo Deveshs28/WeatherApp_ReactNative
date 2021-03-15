@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for WeatherApp/screens/HomeScreen.js</title>
+    <title>Code coverage report for WeatherApp/src/screens/HomeScreen.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">WeatherApp/screens</a> HomeScreen.js</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">WeatherApp/src/screens</a> HomeScreen.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.88% </span>
+                <span class="strong">88.89% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>58/66</span>
+                <span class='fraction'>56/63</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.88% </span>
+                <span class="strong">88.89% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>58/66</span>
+                <span class='fraction'>56/63</span>
             </div>
         
             
@@ -250,13 +250,7 @@
 <a name='L191'></a><a href='#L191'>191</a>
 <a name='L192'></a><a href='#L192'>192</a>
 <a name='L193'></a><a href='#L193'>193</a>
-<a name='L194'></a><a href='#L194'>194</a>
-<a name='L195'></a><a href='#L195'>195</a>
-<a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a>
-<a name='L198'></a><a href='#L198'>198</a>
-<a name='L199'></a><a href='#L199'>199</a>
-<a name='L200'></a><a href='#L200'>200</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L194'></a><a href='#L194'>194</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -271,19 +265,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -323,6 +308,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -366,11 +356,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -465,8 +453,10 @@ import { Keyboard } from 'react-native'
 const axios = require('axios');
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import styles from '../styles'
+import styles from '../styles/styles'
 import moment from 'moment';
+import WeatherItem from '../component/WeatherItem'
+import AppConstant from '../constants/AppConstant'
 &nbsp;
 class HomeScreen extends React.Component {
   constructor() {
@@ -477,17 +467,6 @@ class HomeScreen extends React.Component {
       error: null,
       query: ''
     }
-  }
-&nbsp;
-  // Function to return each section row item
-  renderRow = <span class="fstat-no" title="function not covered" >({</span> item }) =&gt; {
-<span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;View style={styles.card}&gt;
-        &lt;Text style={styles.tempTitle}&gt;Temperature is &lt;Text style={styles.highlightedText}&gt;{`${item.main.temp}${'\u00b0'}c`}&lt;/Text&gt;&lt;/Text&gt;
-        &lt;Text style={styles.otherText}&gt;Min. temp &lt;Text style={styles.highlightedText}&gt;{`${item.main.temp_min}${'\u00b0'}c `}&lt;/Text&gt;and Max. temp &lt;Text style={styles.highlightedText}&gt;{`${item.main.temp_max}${'\u00b0'}c`}&lt;/Text&gt;&lt;/Text&gt;
-        &lt;Text style={styles.conditionTextColor}&gt;{`Weather condition is ${item.weather[0].main}`}&lt;/Text&gt;
-      &lt;/View&gt;
-    )
   }
 &nbsp;
   // This function will return component UI 
@@ -513,7 +492,7 @@ class HomeScreen extends React.Component {
           &lt;TouchableOpacity data-test="search-button-touch" style={{ width: 20 }} onPress={() =&gt; {
             this.handleSearchClick()
           }}&gt;
-            &lt;Image data-test="search-button" source={require('../assets/search_icon.png')} /&gt;
+            &lt;Image data-test="search-button" source={require('../../assets/search_icon.png')} /&gt;
           &lt;/TouchableOpacity&gt;
         &lt;/View&gt;
         {/* This view will display activity indicator incase data is loading otherwise will display data in section list */}
@@ -522,7 +501,12 @@ class HomeScreen extends React.Component {
             &lt;SectionList
               sections={this.state.weatherData}
               renderSectionHeader={<span class="fstat-no" title="function not covered" >({</span> section }) =&gt; <span class="cstat-no" title="statement not covered" >&lt;Text style={styles.sectionHeader}&gt;{moment(section.title).format('MMM Do YYYY, hh:mm a')}&lt;/Text&gt;}</span>
-              renderItem={this.renderRow}
+              renderItem={<span class="fstat-no" title="function not covered" >it</span>emData =&gt; <span class="cstat-no" title="statement not covered" >&lt;WeatherItem</span>
+                temp={itemData.item.main.temp}
+                tempMin={itemData.item.main.temp_min}
+                tempMax={itemData.item.main.temp_max}
+                weatherCondition={itemData.item.weather[0].main}
+              /&gt;}
               keyExtractor={<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; <span class="cstat-no" title="statement not covered" >index.toString()}</span>
             /&gt; : &lt;Text style={styles.errorLabel}&gt;{this.state.error}&lt;/Text&gt;}
       &lt;/View&gt;
@@ -563,13 +547,11 @@ class HomeScreen extends React.Component {
       loading: true
     })
     try {
-      const api = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},in&amp;appid=a7248d18fe5c3e3fc2ada80ee0e9060f&amp;units=metric`
-      console.log(api)
+      const api = `${AppConstant.baseUrl}${AppConstant.zipCodeKey}${zipCode},${AppConstant.countryIdentifier}&amp;${AppConstant.appId}&amp;${AppConstant.units}`
       const response = await axios.get(api)
 <span class="cstat-no" title="statement not covered" >      this.parseResponseData(response.data.list)</span>
 <span class="cstat-no" title="statement not covered" >      this.cacheData(zipCode, response.data.list)</span>
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >      console.log(error)</span>
 <span class="cstat-no" title="statement not covered" >      this.setState({</span>
         loading: false,
         error: error.message
@@ -661,17 +643,17 @@ export default HomeScreen;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Mar 10 2021 14:21:08 GMT+0530 (India Standard Time)
+                at Mon Mar 15 2021 16:26:55 GMT+0530 (India Standard Time)
             </div>
         </div>
-        <script src="../../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     
